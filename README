@@ -1,0 +1,189 @@
+Purpose of Project:
+        Finding a worker was a tough task before, but now,
+        it can be done easily by this app, you can search for
+        the workers according to your needs like Cooking, Washing,
+        Dusting, Home Nurse, Domestic Maid Servant Services, Carpenter,
+        Driver etc. The beneficial feature of this app is finding a
+        specialist nearby to get service quickly and avoid mediators.
+
+Tool:
+    Django rest framework
+================================================================================
+FUNCTIONALITIES:
+REGISTER USER:
+    url:http://127.0.0.1:8000/api/workers/v1/registration/
+    get:view all users
+    post:
+        sample input==>
+                    {
+                        "first_name": "binsha",
+                        "last_name": "v",
+                        "username": "binsha",
+                        "password": "binsha"
+                    }
+        sample output==>
+                {
+                    "first_name": "binsha",
+                    "last_name": "v",
+                    "username": "binsha",
+                    "password": "binsha"
+                }
+=============================================================================
+
+LOGIN USER:
+    url:http://127.0.0.1:8000/api/workers/v1/userlogin/
+    post:
+        sample input==>
+                {
+                    "username": "bakshan",
+                    "password": "bakshan"
+                }
+        sample output==>
+                {
+                    "token": "0df6f4821d8051980ddc97b151b0abc417aa9b1d"
+                }
+
+LOGIN ADMIN
+   url:http://127.0.0.1:8000/api/workers/v1/adminlogin/
+    post:
+        sample input==>
+                {
+                    "username": "shaneeba",
+                    "password": "shaneeba"
+                }
+        sample output==>
+                {
+                    "token": "0df6f4821d8051980ddc97b151b0abc417aa9b1d"
+                }
+
+====================================================================================
+LOCATION VIEW
+    access:admin
+    url:http://127.0.0.1:8000/api/workers/v1/location_view/
+    get:get all locations
+
+LOCATION CREATE
+    access:admin
+    url:http://127.0.0.1:8000/api/workers/v1/location_create/
+    post:
+        sample input==>
+                   {
+
+                        "dist": "palakkad",
+                        "state": "kerala",
+                        "country": "india"
+                   }
+        sample output==>
+                    {
+
+                        "dist": "palakkad",
+                        "state": "kerala",
+                        "country": "india"
+                    }
+
+GET A LOCATION
+    access:users
+    url:http://127.0.0.1:8000/api/workers/v1/view_a_location/1
+    get: get details of a location
+DELETE,UPDATE A LOCATION
+    access:admin
+    url:http://127.0.0.1:8000/api/workers/v1/change_a_location/1
+    put:update a location
+                {
+
+                    "dist": "malappuram",
+                    "state": "kerala",
+                    "country": "india"
+                }
+    delete:delete a location
+=========================================================================================
+CREATE JOB
+        access:admin
+        url:http://127.0.0.1:8000/api/workers/v1/job_create/
+        post:
+                {
+                    "job_name": "carpenter",
+                    "daily_wages": 700
+                }
+VIEW JOBS
+        access:users
+        url:http://127.0.0.1:8000/api/workers/v1/job_view/
+        get:get all available jobs
+
+GET A JOB
+    access:users
+    url:http://127.0.0.1:8000/api/workers/v1/view_a_job/1
+    get:get details of a job
+
+UPDATE,DELETE A JOB
+    access:admin
+    url:http://127.0.0.1:8000/api/workers/v1/change_a_job/1
+    put:update a job
+    delete:delete a job
+
+============================================================================================
+
+CREATE A WORKER
+    access:login users,admin
+    url:http://127.0.0.1:8000/api/workers/v1/worker/
+    get:details of a worker
+    post:post worker
+
+GET,UPDATE,DELETE A WORKER
+    access:login users ,admin
+    url:http://127.0.0.1:8000/api/workers/v1/worker/1
+    get:get details of a worker
+    update:update a worker
+    delete:delete a user
+===============================================================================================
+SEARCH A WORKER BASED ON LOCATION,JOB,AVAILABLITY
+    acess:users
+    url:http://127.0.0.1:8000/api/workers/v1/worker/kannur
+    get:details of workers
+
+==========================================================
+
+HIRE A WORKER
+    access:users
+    url:http://127.0.0.1:8000/api/workers/v1/hireworker/
+    post:hire a worker
+            {
+
+                "worker": "Jane",
+                "address": "xyz,ernakulam",
+                "location": "ernakulam",
+                "customer": "bakshan",
+                "hire": "Hire Worker",
+                "days": 1,
+                "customer_phone": "123456"
+            }
+
+FEEDBACK CREATE:
+    access:login users
+    url:http://127.0.0.1:8000/api/workers/v1/feedback_create/
+    post:post a feebback of worker
+       sample input==>
+                      {
+                        "customer_name": "binsha",
+                        "worker_name": "harry",
+                        "feedback": "Bad",
+                        "content": "not good"
+                      }
+
+FEEDBACK VIEW
+    access:admin
+    url:http://127.0.0.1:8000/api/workers/v1/feedback_view/
+    get:get all feedback
+
+COMMENT:
+    access:login users,admin
+    url:http://127.0.0.1:8000/api/workers/v1/comment/
+    get:get all comments
+    post:post a comment
+                sample input==>
+                      {
+                        "worker": "Jane",
+                        "user": "bakshan",
+                        "content": "good"
+                      }
+
