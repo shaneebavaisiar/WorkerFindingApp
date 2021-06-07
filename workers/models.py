@@ -34,7 +34,7 @@ class Worker(models.Model):
     age = models.IntegerField()
     job = models.ForeignKey(Job, on_delete=models.CASCADE, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=12)
+    phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=120)
     address = models.CharField(max_length=300)
     adhar_card = models.CharField(max_length=120, null=False)

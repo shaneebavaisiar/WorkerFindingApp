@@ -149,13 +149,13 @@ HIRE A WORKER
     post:hire a worker
             {
 
-                "worker": "Jane",
-                "address": "xyz,ernakulam",
-                "location": "ernakulam",
+                "worker": "shaneeba",
+                "address": "xyz,malappuram",
+                "location": "malappuram",
                 "customer": "bakshan",
                 "hire": "Hire Worker",
-                "days": 1,
-                "customer_phone": "123456"
+                "days": 3,
+                "customer_phone": "133535"
             }
 
 FEEDBACK CREATE:
